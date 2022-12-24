@@ -18,7 +18,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - 0:80
+      - 63142:80
     depends_on:
       - empdb
     environment:
