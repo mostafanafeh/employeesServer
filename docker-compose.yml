@@ -1,0 +1,27 @@
+version: '3.4'
+
+
+services:
+  empdb:
+    container_name: employees-db
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    ports:
+       - 8002:1433
+    environment:
+       - ACCEPT_EULA=Y
+       - MSSQL_SA_PASSWORD=Password@12345#
+       - MSSQL_PID=Express
+  employeesserver:
+    container_name: employees-server
+    image: ${DOCKER_REGISTRY-}employeesserver
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8001:80
+    depends_on:
+      - empdb
+    environment:
+      - DB_HOST=empdb
+      - DB_NAME=Employees
+      - DB_SA_PASSWORD=Password@12345#
