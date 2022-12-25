@@ -13,12 +13,12 @@ services:
        - MSSQL_PID=Express
   employeesserver:
     container_name: employees-server
+    ports:
+      - 8000-8004:443
     image: ${DOCKER_REGISTRY-}employeesserver
     build:
       context: .
-      dockerfile: Dockerfile
-    ports:
-      - 8001:80
+      dockerfile: Dockerfile 
     depends_on:
       - empdb
     environment:
