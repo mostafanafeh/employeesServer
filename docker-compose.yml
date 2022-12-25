@@ -12,7 +12,7 @@ services:
        - MSSQL_SA_PASSWORD=Password@12345#
        - MSSQL_PID=Express
   employeesserver:
-    container_name: employees-server
+    container_name: employees-server 
     ports:
       - 8000-8004:443
     image: ${DOCKER_REGISTRY-}employeesserver
