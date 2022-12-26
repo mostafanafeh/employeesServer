@@ -16,10 +16,7 @@ services:
     ports:
       - 8000:8000
       - 8001:8001
-    image: ${DOCKER_REGISTRY-}employeesserver
-    build:
-      context: .
-      dockerfile: Dockerfile 
+    image: mustaphanafeh/employeesserver
     depends_on:
       - empdb
     environment:
