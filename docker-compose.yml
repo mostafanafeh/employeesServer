@@ -14,7 +14,8 @@ services:
   employeesserver:
     container_name: employees-server 
     ports:
-      - 8000-8004:443
+      - 8000:8000
+      - 8001:8001
     image: ${DOCKER_REGISTRY-}employeesserver
     build:
       context: .
